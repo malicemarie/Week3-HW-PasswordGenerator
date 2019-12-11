@@ -20,17 +20,26 @@ for (var i = numOfChar; i <= 8 || i >= 128; numOfChar = prompt(
 
 
 
-
-
-
-// run this shit until they answer correctly
-
-
-
 var specialChar = confirm("Do you want to use Special Characters?");
 var lowerCase = confirm("Do you want to use lower case characters?");
 var upperCase = confirm("Do you want to use upper case characters?");
 var includeNum = confirm("Do you want to include numbers?");
+
+console.log({
+    numOfChar,
+    specialChar,
+    lowerCase,
+    upperCase,
+    includeNum
+})
+
+while (!specialChar && !lowerCase && !upperCase && !includeNum) {
+    alert("Please include atleast one character type.")
+    specialChar = confirm("Do you want to use Special Characters?");
+    lowerCase = confirm("Do you want to use lower case characters?");
+    upperCase = confirm("Do you want to use upper case characters?");
+    includeNum = confirm("Do you want to include numbers?");
+}
 
 console.log({
     numOfChar,
