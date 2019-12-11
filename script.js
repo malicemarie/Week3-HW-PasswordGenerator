@@ -19,19 +19,13 @@ for (var i = numOfChar; i <= 8 || i >= 128; numOfChar = prompt(
 }
 
 
+//Confirming the type of special characters to be used
 
 var specialChar = confirm("Do you want to use Special Characters?");
 var lowerCase = confirm("Do you want to use lower case characters?");
 var upperCase = confirm("Do you want to use upper case characters?");
 var includeNum = confirm("Do you want to include numbers?");
 
-console.log({
-    numOfChar,
-    specialChar,
-    lowerCase,
-    upperCase,
-    includeNum
-})
 
 while (!specialChar && !lowerCase && !upperCase && !includeNum) {
     alert("Please include atleast one character type.")
@@ -49,17 +43,33 @@ console.log({
     includeNum
 })
 
-var approvedChar = 'abcdefghijklmnopqrstuvwxyz'.split("");
-console.log(approvedChar);
+
+var approvedLowerChar = 'abcdefghijklmnopqrstuvwxyz'.split("");
+var approvedUpperChar = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split("");
 var approvedSpecChar = ['!', '@', '#', '$', '%', "?", "&", "*", "+"];
-console.log(approvedSpecChar);
+var approvedNumbers = '1234567890'.split("");
 
 
 
+// Determine number of Characters
 
+var charInPW = []
+console.log(charInPW)
 
+if (specialChar){
+    charInPW = charInPW.concat(approvedSpecChar);
+}
 
+if (lowerCase) {
+    charInPW = charInPW.concat(approvedLowerChar);
+}
 
+if (upperCase){
+    charInPW = charInPW.concat(approvedUpperChar);
 
-var specialCharacters = ['!', '@', '#', '$', '%', "?", "&", "*", "+"]
+}
+if (includeNum){
+    charInPW = charInPW.concat(approvedNumbers);
+}
 
+console.log(charInPW)
