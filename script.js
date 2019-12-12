@@ -35,13 +35,13 @@ while (!specialChar && !lowerCase && !upperCase && !includeNum) {
     includeNum = confirm("Do you want to include numbers?");
 }
 
-console.log({
-    numOfChar,
-    specialChar,
-    lowerCase,
-    upperCase,
-    includeNum
-})
+// console.log({
+//     numOfChar,
+//     specialChar,
+//     lowerCase,
+//     upperCase,
+//     includeNum
+// })
 
 
 var approvedLowerChar = 'abcdefghijklmnopqrstuvwxyz'.split("");
@@ -54,7 +54,6 @@ var approvedNumbers = '1234567890'.split("");
 // Determine number of Characters
 
 var charInPW = []
-console.log(charInPW)
 
 if (specialChar){
     charInPW = charInPW.concat(approvedSpecChar);
@@ -72,7 +71,7 @@ if (includeNum){
     charInPW = charInPW.concat(approvedNumbers);
 }
 
-console.log(charInPW)
+// console.log(charInPW)
 
 var randomPW = [];
 
@@ -82,21 +81,22 @@ function grabRandomEl(array){
 function includeAllCorrectChar(){
     var allCorrectChar = [];
     if (specialChar){
-        allCorrectChar = allCorrectChar.push(grabRandomEl(approvedSpecChar))
+       allCorrectChar.push(grabRandomEl(approvedSpecChar))
     }
     if (lowerCase){
-        allCorrectChar = allCorrectChar.push(grabRandomEl(approvedLowerChar))
+        console.log("is this and arr", allCorrectChar)
+       allCorrectChar.push(grabRandomEl(approvedLowerChar))
     }
     if (upperCase){
-        allCorrectChar = allCorrectChar.push(grabRandomEl(approvedUpperChar))
+       allCorrectChar.push(grabRandomEl(approvedUpperChar))
     }
     if (includeNum){
-        allCorrectChar = allCorrectChar.push(grabRandomEl(approvedNumbers))
+       allCorrectChar.push(grabRandomEl(approvedNumbers))
     }
     return allCorrectChar;
 }
 
-var usersChoice = includeAllCorrectChar
+var usersChoice = includeAllCorrectChar()
 
 for (var i = 0; i < numOfChar; i++){
     var el = grabRandomEl(charInPW);
@@ -108,7 +108,9 @@ for (var i = 0; i < numOfChar; i++){
 randomPW = randomPW.slice(usersChoice.length);
 console.log("include random PW", randomPW)
 randomPW = randomPW.concat(usersChoice);
-console.log("after",randomPW);
+console.log("after",randomPW.join(','));
+
+alert("Here is your Password! " + randomPW.join(""));
 
 
 
