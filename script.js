@@ -73,3 +73,45 @@ if (includeNum){
 }
 
 console.log(charInPW)
+
+var randomPW = [];
+
+function grabRandomEl(array){
+    return array[Math.floor(Math.random()*array.length)];
+} 
+function includeAllCorrectChar(){
+    var allCorrectChar = [];
+    if (specialChar){
+        allCorrectChar = allCorrectChar.push(grabRandomEl(approvedSpecChar))
+    }
+    if (lowerCase){
+        allCorrectChar = allCorrectChar.push(grabRandomEl(approvedLowerChar))
+    }
+    if (upperCase){
+        allCorrectChar = allCorrectChar.push(grabRandomEl(approvedUpperChar))
+    }
+    if (includeNum){
+        allCorrectChar = allCorrectChar.push(grabRandomEl(approvedNumbers))
+    }
+    return allCorrectChar;
+}
+
+var usersChoice = includeAllCorrectChar
+
+for (var i = 0; i < numOfChar; i++){
+    var el = grabRandomEl(charInPW);
+    console.log(el);
+    randomPW.push(el);
+    
+}
+
+randomPW = randomPW.slice(usersChoice.length);
+console.log("include random PW", randomPW)
+randomPW = randomPW.concat(usersChoice);
+console.log("after",randomPW);
+
+
+
+
+
+
