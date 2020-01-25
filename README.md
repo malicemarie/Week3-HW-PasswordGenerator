@@ -1,4 +1,5 @@
 # Unit 03 JavaScript Homework: Password Generator
+[Password Generator](https://malicemarie.github.io/Week6-HW-PasswordGenerator)
 
 ## Description
 
